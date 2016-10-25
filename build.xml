@@ -111,11 +111,12 @@
 		</jar>
         <!-- Add the same Jar to the Service Directory !-->
         <jar jarfile="${service}/i5.las2peer.services.monitoring.processing-${MonitoringDataProcessingService.version}.jar">
-            <fileset dir="${tmp.classes}" includes="${service.path}/**" />
-            <manifest>
-                <attribute name="Library-Version" value="${MonitoringDataProcessingService.version}" />
-                <attribute name="Library-SymbolicName" value="i5.las2peer.services.monitoring.processing" />
-            </manifest>
+            <fileset dir="${tmp.classes}" includes="i5/las2peer/services/monitoring/processing/**" />
+        	<manifest>
+        		<attribute name="Library-Version" value="${MonitoringDataProcessingService.version}" />
+        		<attribute name="Library-SymbolicName" value="i5.las2peer.services.monitoring.processing" />
+        		<attribute name="Import-Library" value='db2jcc;version="0",db2jcc_license_cu;version="0",db2jcc;version="0",mysqlConnectorJava;version="5.1.16"' />
+        	</manifest>
         </jar>
 		<!-- Copy to lib folder to enable working with L2PNodeLauncher !-->
 		<jar jarfile="${lib}/i5.las2peer.services.monitoring.processing-${MonitoringDataProcessingService.version}.jar">
